@@ -9,6 +9,7 @@ import { UpdateProductComponent } from './update-product/update-product.componen
 
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
+import { MyserviceService } from './myservice.service';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,8 @@ import {FormsModule} from '@angular/forms';
     AddProductComponent,
     ListProductComponent,
     UpdateProductComponent,
+   
+    
     
   ],
   imports: [
@@ -24,7 +27,7 @@ import {FormsModule} from '@angular/forms';
     FormsModule,
     AppRoutingModule
   ],
-  providers: [HttpClient],
+  providers: [HttpClient, MyserviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

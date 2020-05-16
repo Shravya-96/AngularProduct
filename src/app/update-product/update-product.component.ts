@@ -10,18 +10,21 @@ import { Router } from '@angular/router';
 export class UpdateProductComponent implements OnInit {
 
   obj1: any;
-  product: Product[];
+  product: Product;
   message: string;
   constructor(private myservice: MyserviceService, private router: Router) {
     this.obj1 = this.myservice.updateMethod();
+    
   }
-  onUpdate(uproduct: Product): any {
-    return this.myservice.onUpdate(uproduct).subscribe(data => {
-      this.message = data
-    });
+  onUpdate(update: Product): any
+   {
+     return this.myservice.onUpdate(update).subscribe(data => {alert(data)});
+    
   }
   ngOnInit(): void {
+    
   }
+  
 
 
 }

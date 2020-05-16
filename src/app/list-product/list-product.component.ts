@@ -9,8 +9,9 @@ import { Router } from '@angular/router';
 })
 export class ListProductComponent implements OnInit {
 
+  [x: string]: any;
   message: string;
-  product: Product[];
+  public product: Product[];
   constructor(private myservice: MyserviceService, private router: Router) {
   }
 
@@ -23,15 +24,17 @@ export class ListProductComponent implements OnInit {
     this.product = response;
   }
   update(updateproduct: Product) {
+    console.log(updateproduct);
     this.myservice.updateProduct(updateproduct);
     this.router.navigate(['/updateproduct']);
   }
   delete(deleteproduct: Product): any {
+    console.log(deleteproduct.productId);
     this.myservice.delete(deleteproduct.productId).subscribe(data => {
-      this.message = data
+      alert(data)
+      this.router.navigate(['']);
     });
     this.router.navigate(['/listproduct']);
   }
-
 
 }

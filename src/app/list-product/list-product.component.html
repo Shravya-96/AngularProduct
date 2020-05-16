@@ -1,7 +1,7 @@
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-</head>
+  </head>
 <div class="container">
     <table class="table table-striped" *ngIf="product && product.length > 0  else elseBlock">
         <thead>
@@ -10,6 +10,7 @@
             <th>PRODUCT NAME</th>
             <th>PRODUCT BRAND</th>
             <th>PRODUCT PRICE</th>
+            <th>RETAILER ID</th>
             <th>DELETE PRODUCT</th>
             <th>UPDATE PRODUCT</th>
         </tr>
@@ -20,14 +21,13 @@
                 <td> {{p.productName}} </td>
                 <td> {{p.productBrand}} </td>
                 <td>{{p.productPrice}}</td>
-                
+                <td>{{p.retailerId}}</td>
                 <td>
                     <button type="button" class="btn btn-large btn-block btn-primary" (click)=delete(p)>DELETE</button>
                 </td>
                 <td>
                     <button type="button" class="btn btn-large btn-block btn-primary" (click)=update(p)>UPDATE</button>
                 </td>
-                <td>
             </tr>
         </tbody>
     </table>

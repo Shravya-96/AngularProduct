@@ -1,24 +1,22 @@
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-</head>
+  </head>
 <div class="container">
-
         <h3>ADD PRODUCT</h3>
 
     <form #userForm="ngForm" (ngSubmit)='onSubmit(userForm.value)'>
-
-        <div class="form-group">
-
+            <div class="form-group">
             <label>Product Id: </label>
 
-            <input required minlength="10" type="number" #productIdRef='ngModel' name="id" ngModel class="form-control">
+            <input required minlength="1" maxlength="10" type="number" #productIdRef='ngModel' name="productId" ngModel class="form-control">
 
             <div *ngIf='productIdRef.errors && productIdRef.touched' class="alert alert-danger">
 
                 <div [hidden]='!productIdRef.errors.required'> Provide Product Id </div>
 
             </div>
+            
         </div>
 
 
@@ -27,18 +25,15 @@
 
             <label>Product Name: </label>
 
-            <input required minlength="20" type="text" #productNameRef='ngModel' name="name" ngModel class="form-control">
+            <input required minlength="1" maxlength="10" type="text" #productNameRef='ngModel' name="productName" ngModel class="form-control">
 
             <div *ngIf='productNameRef.errors
                         && productNameRef.touched' class="alert alert-danger">
 
-                <div [hidden]='!productNameRef.errors.required'>
-
-                    Provide Product Name
+                <div [hidden]='!productNameRef.errors.required'> Provide Product Name
 
                 </div>
 
-                <div *ngIf='productNameRef.errors.pattern'>Name should be minimum of 20 characters length</div>
 
             </div>
 
@@ -48,7 +43,7 @@
 
             <label>Product Brand: </label>
 
-            <input required minlength="10" length="10" type="text" #productBrandRef='ngModel' name="brand" ngModel class="form-control">
+            <input required minlength="1" maxlength="10"  type="text" #productBrandRef='ngModel' name="productBrand" ngModel class="form-control">
 
             <div *ngIf='productBrandRef.errors && productBrandRef.touched' class="alert alert-danger">
 
@@ -61,13 +56,23 @@
 
             <label>Product Price: </label>
 
-            <input required length="10" type="number" #productPriceRef='ngModel' name="price" ngModel class="form-control">
+            <input required minlength="1" maxlength="10" type="number" #productPriceRef='ngModel' name="productPrice" ngModel class="form-control">
 
             <div *ngIf='productPriceRef.errors && productPriceRef.touched' class="alert alert-danger">
 
                 <div [hidden]='!productPriceRef.errors.required'> Provide Product Price </div>
 
-                <div *ngIf='productNameRef.errors.pattern'>Product Price </div>
+            </div>
+        </div>
+        <div class="form-group">
+
+            <label>Retailer Id: </label>
+
+            <input required minlength="1" maxlength="10" type="text" #retailerIdRef='ngModel' name="retailerId" ngModel class="form-control">
+
+            <div *ngIf='retailerIdRef.errors && retailerIdRef.touched' class="alert alert-danger">
+
+                <div [hidden]='!retailerIdRef.errors.required'> Provide Retailer Id </div>
 
             </div>
         </div>
@@ -76,7 +81,7 @@
 
     </form>
 
-</div>
+
 <div>
     <h2>{{message}}</h2>
 </div>
